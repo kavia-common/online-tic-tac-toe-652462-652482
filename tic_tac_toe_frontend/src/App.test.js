@@ -1,8 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders Tic Tac Toe title and board', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  expect(screen.getByText(/Tic Tac Toe/i)).toBeInTheDocument();
+  // Board has 9 cells
+  const cells = screen.getAllByRole('gridcell');
+  expect(cells).toHaveLength(9);
 });
